@@ -10,9 +10,12 @@ var config = {
     rules: [{
       test: /\.jsx?/,
       include: APP_DIR,
-      loader: 'babel-loader',
-      query: {
-        presets: ['es2015', 'react']
+      use: {
+        loader: 'babel-loader',
+        options: {
+          presets: ['es2015', 'react'],
+          plugins: [require('babel-plugin-transform-class-properties')]
+        }
       }
     }]
   },
