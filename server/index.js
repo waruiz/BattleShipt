@@ -1,10 +1,10 @@
 require('babel-polyfill');
 
-const app = require('express')();
+const express = require('express');
+const app = express();
 const http = require('http').Server(app);
+const path = require('path');
 
-app.get('/', (req, res) =>
-  res.send('<h1>Hello from Socket.io!</h1>')
-);
+app.use(express.static(path.join(__dirname, '../client/dist/')));
 
-http.listen(3000, () => console.log(`Listening on port 3000`));
+app.listen(3000, () => console.log(`Listening on port 3000`));
