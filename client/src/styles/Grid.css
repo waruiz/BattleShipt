@@ -1,10 +1,15 @@
 .gridSize {
   display: grid;
-  height: 500px;
-  width: 500px;
+  height: 499px;
+  width: 499px;
   background-color: #84b3ff;
   grid-template-columns: 20% 20% 20% 20% 20%;
   grid-template-rows: 20% 20% 20% 20% 20%;
   border-top: solid 1px;
   border-left: solid 1px;
+}
+
+.tileStyle:hover {
+  background-color: yellow;
+  opacity: 0.5;
 }
