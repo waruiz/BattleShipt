@@ -26,8 +26,7 @@ export default class Grid extends Component {
         columnEnd += 1;
       }
       tiles.push(
-        <div className='tileStyle'
-          style={position} >{i + 1}</div>
+        <div style={position} >{i + 1}</div>
       );
     }
 
