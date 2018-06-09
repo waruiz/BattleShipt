@@ -17,6 +17,10 @@ var config = {
           plugins: [require('babel-plugin-transform-class-properties')]
         }
       }
+    },
+    {
+      test: /\.css$/,
+      loaders: ['style-loader', 'css-loader']
     }]
   },
   output: {
