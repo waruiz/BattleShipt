@@ -13,7 +13,9 @@ export default class Grid extends Component {
     
     for (let i = 1; i <= 25; ++i) {
       let position = {
-        gridArea: `${rowStart} / ${columnStart} / ${rowEnd} / ${columnEnd}`
+        gridArea: `${rowStart} / ${columnStart} / ${rowEnd} / ${columnEnd}`,
+        borderBottom: 'solid 1px',
+        borderRight: 'solid 1px'
       };
 
       if ((i > 1) && (i % 5 === 0)) {
