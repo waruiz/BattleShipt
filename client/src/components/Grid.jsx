@@ -1,23 +1,41 @@
 import React, { Component } from 'react';
 
+// import Tile from './Tile.jsx';
+
 import styles from '../styles/Grid.css';
 
 export default class Grid extends Component {
   render() {
+    let tiles = [];
+
+    let columnStart = 1;
+    let columnEnd = 2;
+    let rowStart = 0;
+    let rowEnd = 1;
+    
+    for (let i = 0; i < 25; i++) {
+      let position = {
+        gridArea: `${rowStart} / ${columnStart} / ${rowEnd} / ${columnEnd}`
+      };
+
+      if (i % 5 === 0) {
+        rowStart += 1;
+        rowEnd += 1;
+        columnStart = 1;
+        columnEnd = 2;
+      } else {
+        columnStart += 1;
+        columnEnd += 1;
+      }
+      tiles.push(
+        <div className='tileStyle'
+          style={position} >{i + 1}</div>
+      );
+    }
+
     return(
       <div id="ocean" className='gridSize' >
-        <div id="grid" className='gridStyle' >
-          <div className="tile" className='tileStyle'
-            style={{gridColumn: 'col-start 1 / span 1'}} >1</div>
-          <div className="tile" className='tileStyle'
-            style={{gridColumn: 'col-start 2 / span 1'}} >2</div>
-          <div className="tile" className='tileStyle'
-            style={{gridColumn: 'col-start 3 / span 1'}} >3</div>
-          <div className="tile" className='tileStyle'
-            style={{gridColumn: 'col-start 4 / span 1'}} >4</div>
-          <div className="tile" className='tileStyle'
-            style={{gridColumn: 'col-start 5 / span 1'}} >5</div>
-        </div>
+        {tiles.map(tile => tile)}
       </div>
     );
   }
