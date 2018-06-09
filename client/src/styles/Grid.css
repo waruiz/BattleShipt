@@ -1,0 +1,17 @@
+.gridSize {
+  height: 500px;
+  width: 500px;
+  background-color: #84b3ff;
+}
+
+.gridStyle {
+  display: grid;
+  grid-template-columns: repeat(5, [col-start], 1fr);
+}
+
+.tileStyle {
+  display: inline-block;
+  height: 50px;
+  width: 50px;
+  background-color: green,
+}
