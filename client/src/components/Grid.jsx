@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 
-// import Tile from './Tile.jsx';
-
 import styles from '../styles/Grid.css';
 
 export default class Grid extends Component {
