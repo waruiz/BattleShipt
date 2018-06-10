@@ -16,7 +16,7 @@ export default class Tile extends Component {
   render () {
     return (
       <div className='tileStyle' style={this.props.position}
-        onClick={this.selectTile} >
+        onClick={this.selectTile} id={`coordinate-${this.props.i}`} >
       {this.state.selected ? <span><img src={ship} className='battleship' /></span>
           : <span></span>}
       </div>
