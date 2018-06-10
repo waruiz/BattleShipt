@@ -2,28 +2,23 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import { Redirect } from 'react-router';
 
+import Context from './Context.jsx';
 import Welcome from './Welcome.jsx';
 import Battlefield from './Battlefield.jsx';
 
 export default class App extends Component {
-  state = {
-    username: ''
-  }
-  addUsername = (username) => {
-    this.setState({username});
-  }
   render () {
     return (
       <div>
-      {
-        this.state.username ?
-          <Redirect to="/battlefield" /> :
-          <Redirect to="/" />
-      }
+      <Context.Consumer>
+      {(context) => (context.username === '' ?
+          <Redirect to="/" /> : <Redirect to="/battlefield" />
+      )}
+      </Context.Consumer>
       <Route exact="exact" path="/"
-        render={() => <Welcome addUsername={this.addUsername} /> } />
+        render={() => <Welcome/> } />
       <Route path="/battlefield"
-        render={() => <Battlefield />} />
+        render={() => <Battlefield/>} />
       </div>
     );
   }
