@@ -16,9 +16,9 @@ export default class App extends Component {
       )}
       </Context.Consumer>
       <Route exact="exact" path="/"
-        render={() => <Welcome addUsername={this.props.addUsername} /> } />
+        render={() => <Welcome/> } />
       <Route path="/battlefield"
-        render={() => <Battlefield username={this.state.username} />} />
+        render={() => <Battlefield/>} />
       </div>
     );
   }
