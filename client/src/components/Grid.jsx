@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import Tile from './Tile.jsx';
+
 import styles from '../styles/Grid.css';
 
 export default class Grid extends Component {
@@ -28,7 +30,7 @@ export default class Grid extends Component {
         columnEnd += 1;
       }
       tiles.push(
-        <div style={position} >{i}</div>
+        <Tile position={position} i={i} />
       );
     }
 
