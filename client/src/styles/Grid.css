@@ -8,8 +8,3 @@
   border-top: solid 1px;
   border-left: solid 1px;
 }
-
-.tileStyle:hover {
-  background-color: yellow;
-  opacity: 0.5;
-}
