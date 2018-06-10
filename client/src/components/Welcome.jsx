@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import Context from './Context.jsx';
+
 export default class Battlefield extends Component {
   state = {
     newUsername: ''
@@ -12,7 +14,15 @@ export default class Battlefield extends Component {
     const { addUsername } = this.props;
     return(
       <div>
-        <h1>Welcome to BattleShipt.</h1>
+        <Context.Consumer>
+        {
+          (context) => (
+            <p>{context.username}</p>
+          )
+        }
+        </Context.Consumer>
+
+        {/* <h1>Welcome to BattleShipt.</h1>
         <div>
         <form>
           <label>
@@ -22,7 +32,7 @@ export default class Battlefield extends Component {
           </label>
           <input type="button" value="Submit" onClick={() => addUsername(this.state.newUsername)} />
         </form>
-        </div>
+        </div> */}
       </div>
     );
   }
