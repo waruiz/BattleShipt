@@ -23,7 +23,7 @@ export default class App extends Component {
       <Route exact="exact" path="/"
         render={() => <Welcome addUsername={this.addUsername} /> } />
       <Route path="/battlefield"
-        render={() => <Battlefield />} />
+        render={() => <Battlefield username={this.state.username} />} />
       </div>
     );
   }
