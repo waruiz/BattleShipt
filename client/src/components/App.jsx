@@ -11,12 +11,9 @@ export default class App extends Component {
     return (
       <div>
       <Context.Consumer>
-      {
-        (context) => {
-          context.username === '' ? <Redirect to="/" />
-          : <Redirect to="/battlefield" />
-        }
-      }
+      {(context) => (context.username === '' ?
+          <Redirect to="/" /> : <Redirect to="/battlefield" />
+      )}
       </Context.Consumer>
       <Route exact="exact" path="/"
         render={() => <Welcome addUsername={this.props.addUsername} /> } />
