@@ -22,11 +22,9 @@ export default class Battlefield extends Component {
               onChange={this.handleInput} />
           </label>
           <Context.Consumer>
-          {
-            (addUsername) => (
-              <input type="button" value="Submit" onClick={addUsername} />
-            )
-          }
+          {({addUsername}) => (
+            <input type="button" value="Submit" onClick={addUsername} />
+          )}
           </Context.Consumer>
         </form>
         </div>
