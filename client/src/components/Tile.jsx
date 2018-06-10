@@ -17,7 +17,7 @@ export default class Tile extends Component {
     return (
       <div className='tileStyle' style={this.props.position}
         onClick={this.selectTile} >
-      {this.state.selected ? <span><img src={ship}/></span>
+      {this.state.selected ? <span><img src={ship} className='battleship' /></span>
           : <span></span>}
       </div>
     );
