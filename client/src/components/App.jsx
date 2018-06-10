@@ -6,22 +6,16 @@ import Welcome from './Welcome.jsx';
 import Battlefield from './Battlefield.jsx';
 
 export default class App extends Component {
-  state = {
-    username: ''
-  }
-  addUsername = (username) => {
-    this.setState({username});
-  }
   render () {
     return (
       <div>
       {
-        this.state.username ?
+        false ?
           <Redirect to="/battlefield" /> :
           <Redirect to="/" />
       }
       <Route exact="exact" path="/"
-        render={() => <Welcome addUsername={this.addUsername} /> } />
+        render={() => <Welcome addUsername={this.props.addUsername} /> } />
       <Route path="/battlefield"
         render={() => <Battlefield username={this.state.username} />} />
       </div>
