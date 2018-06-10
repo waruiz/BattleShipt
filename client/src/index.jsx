@@ -7,10 +7,12 @@ import App from './components/App.jsx';
 
 class Provider extends Component {
   state = {
+    addUsername: this.addUsername,
     username: ''
   }
   addUsername = (username) => {
-    this.setState({username});
+    console.log(username);
+    // this.setState({username});
   }
   render() {
     return (
