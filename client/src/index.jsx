@@ -6,13 +6,13 @@ import Context from './components/Context.jsx';
 import App from './components/App.jsx';
 
 class Provider extends Component {
+  addUsername = () => {
+    console.log('TEST');
+    // this.setState({username});
+  }
   state = {
     addUsername: this.addUsername,
     username: ''
-  }
-  addUsername = (username) => {
-    console.log(username);
-    // this.setState({username});
   }
   render() {
     return (
