@@ -21,6 +21,19 @@ var config = {
     {
       test: /\.css$/,
       loaders: ['style-loader', 'css-loader']
+    },
+    {
+      test: /\.(png|jpg|gif|)$/,
+      use: [
+        {
+          loader: 'url-loader',
+          options: {
+            fallback: 'file-loader',
+            publicPath: './client/dist/images/',
+            outputPath: './images/'
+          }
+        }
+      ]
     }]
   },
   output: {
