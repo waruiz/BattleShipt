@@ -2,5 +2,8 @@
 /node_modules/
 package-lock.json
 
-## Webpack ##
+## WEBPACK ##
 bundle.js
+
+## HASHED ASSET IMAGES ##
+client/dist/images/
