@@ -17,7 +17,7 @@ export default class Battlefield extends Component {
         <Context.Consumer>
         {
           (context) => (
-            <p>{context.username}</p>
+            <p>Welcome: {context.username}</p>
           )
         }
         </Context.Consumer>
