@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 
-import App from './components/App.jsx';
 import Context from './components/Context.jsx';
+import App from './components/App.jsx';
 
 class Provider extends Component {
   state = {
-    username: 'William'
+    username: ''
   }
   addUsername = (username) => {
     this.setState({username});
