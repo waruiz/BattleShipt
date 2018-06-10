@@ -20,7 +20,7 @@ export default class Battlefield extends Component {
             <input type="text" value={this.state.newUsername}
               onChange={this.handleInput} />
           </label>
-          <input type="button" value="Submit" onClick={addUsername} />
+          <input type="button" value="Submit" onClick={() => addUsername(this.state.newUsername)} />
         </form>
         </div>
       </div>
