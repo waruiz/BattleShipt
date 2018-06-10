@@ -11,18 +11,9 @@ export default class Battlefield extends Component {
     this.setState({newUsername: value});
   }
   render() {
-    const { addUsername } = this.props;
     return(
       <div>
-        <Context.Consumer>
-        {
-          (context) => (
-            <p>Welcome: {context.username}</p>
-          )
-        }
-        </Context.Consumer>
-
-        {/* <h1>Welcome to BattleShipt.</h1>
+        <h1>Welcome to BattleShipt.</h1>
         <div>
         <form>
           <label>
@@ -30,9 +21,15 @@ export default class Battlefield extends Component {
             <input type="text" value={this.state.newUsername}
               onChange={this.handleInput} />
           </label>
-          <input type="button" value="Submit" onClick={() => addUsername(this.state.newUsername)} />
+          <Context.Consumer>
+          {
+            (addUsername) => (
+              <input type="button" value="Submit" onClick={addUsername} />
+            )
+          }
+          </Context.Consumer>
         </form>
-        </div> */}
+        </div>
       </div>
     );
   }
