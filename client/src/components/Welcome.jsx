@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import Context from './Context.jsx';
 
+import style from '../styles/Welcome.css';
+
 export default class Battlefield extends Component {
   state = {
     newUsername: ''
@@ -12,8 +14,8 @@ export default class Battlefield extends Component {
   }
   render() {
     return(
-      <div>
-        <h1>Welcome to BattleShipt.</h1>
+      <div className='background'>
+        <h1 className='headline' >Welcome to BattleShipt</h1>
         <div>
         <form>
           <label>
