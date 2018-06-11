@@ -4,6 +4,3 @@ package-lock.json
 
 ## WEBPACK ##
 bundle.js
-
-## HASHED ASSET IMAGES ##
-client/dist/images/
