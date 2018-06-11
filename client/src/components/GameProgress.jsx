@@ -7,7 +7,7 @@ import ScoreBoard from './ScoreBoard.jsx';
 export default class GameProgress extends Component {
   render() {
     return(
-      <div>
+      <div style={{float: 'right'}}>
       <Context.Consumer>
       {(context) => (
         context.startGame && context.opponentStartGame ?
