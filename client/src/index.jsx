@@ -17,6 +17,7 @@ class Provider extends Component {
     toggleStartGame: this.toggleStartGame,
     username: '',
     startGame: false,
+    opponentStartGame: false,
   }
   render() {
     return (
