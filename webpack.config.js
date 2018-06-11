@@ -5,6 +5,7 @@ var BUILD_DIR = path.resolve(__dirname, 'client/dist');
 var APP_DIR = path.resolve(__dirname, 'client/src');
 
 var config = {
+  mode: 'production',
   entry: APP_DIR + '/index.jsx',
   module: {
     rules: [{
