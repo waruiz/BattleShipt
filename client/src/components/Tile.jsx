@@ -8,7 +8,8 @@ import explosion from '../assets/explosion_small.png';
 
 export default class Tile extends Component {
   state = {
-    selected: false
+    selected: false,
+    shipPlaced: false,
   }
 
   selectTile = (e) => {
@@ -18,20 +19,24 @@ export default class Tile extends Component {
   
   render () {
     return (
-      <div className='tileStyle' style={this.props.position}
-        onClick={this.selectTile} id={`coordinate-${this.props.i}`} >
       <Context.Consumer>
-      {({startGame}) => (
-        startGame === false ?
-          (this.state.selected ?
-            <span><img src={ship} className='tilePiece' /></span>
-            : <span></span>)
-        : (this.state.selected === true ?
-            <span><img src={explosion} className='tilePiece' /></span>
-            : <span></span>)
-      )}
+        {({startGame}) => (
+          <React.Fragment>
+            <div className='tileStyle' style={this.props.position}
+              onClick={this.selectTile} id={`coordinate-${this.props.i}`} >
+            {
+            startGame === false ?
+              (this.state.selected ?
+                <span><img src={ship} className='tilePiece' /></span>
+                : <span></span>)
+            : (this.state.selected === true ?
+                <span><img src={explosion} className='tilePiece' /></span>
+                : <span></span>)
+            }
+            </div>
+          </React.Fragment>
+        )}
       </Context.Consumer>
-      </div>
     );
   }
 }
