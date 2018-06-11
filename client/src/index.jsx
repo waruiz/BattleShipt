@@ -9,9 +9,15 @@ class Provider extends Component {
   addUsername = (username) => {
     this.setState({username});
   }
+  toggleStartGame = () => {
+    this.setState({startGame: true});
+  }
   state = {
     addUsername: this.addUsername,
-    username: ''
+    toggleStartGame: this.toggleStartGame,
+    username: '',
+    startGame: false,
+    opponentStartGame: false,
   }
   render() {
     return (
