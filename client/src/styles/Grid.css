@@ -2,6 +2,7 @@
   display: grid;
   height: 499px;
   width: 499px;
+  float: left;
   background-color: #84b3ff;
   grid-template-columns: 20% 20% 20% 20% 20%;
   grid-template-rows: 20% 20% 20% 20% 20%;
