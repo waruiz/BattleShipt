@@ -13,7 +13,6 @@ export default class Tile extends Component {
   }
 
   selectTile = (gameStatus, i, callback) => {
-    console.log(`YOU HIT TILE: ${i}`)
     let opposite = !(this.state.selected);
     if (!gameStatus) {
       let myShip = !(this.state.shipPlaced);
