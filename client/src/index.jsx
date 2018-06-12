@@ -14,16 +14,16 @@ class Provider extends Component {
   }
   strikeEnemy = (i) => {
     if (this.state.enemyShipLocations[i] === undefined) {
-      console.log('Miss!');
+      this.setState({userStrikeType: `was a MISS at location ${i}!`});
     } else if (this.state.enemyShipLocations[i]) {
-      console.log('Already taken!')
+      this.setState({userStrikeType: `was ALREADY TAKEN at location ${i}!`});
     } else {
-      console.log('Hit!');
       this.setState({
         enemyShipLocations:
           Object.assign({},
             this.state.enemyShipLocations[i] = true,
-            this.state.enemyShipLocations)
+            this.state.enemyShipLocations),
+        userStrikeType: `was a HIT at location ${i}!`
       });
     }
   }
@@ -36,6 +36,7 @@ class Provider extends Component {
     opponentName: 'Computer', // default Computer for PC play, default '' for socket-integration play with person
     opponentStartGame: true, // default true for PC play, default false for real opponent play is integrated
     enemyShipLocations: {},
+    userStrikeType: null,
   }
   componentDidMount() {
     let enemyTiles = {};
