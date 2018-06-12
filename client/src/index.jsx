@@ -12,12 +12,39 @@ class Provider extends Component {
   toggleStartGame = () => {
     this.setState({startGame: true});
   }
+  strikeEnemy = (i) => {
+    if (this.state.enemyShipLocations[i] === undefined) {
+      this.setState({userStrikeType: `was a MISS at location ${i}!`});
+    } else if (this.state.enemyShipLocations[i]) {
+      this.setState({userStrikeType: `was ALREADY TAKEN at location ${i}!`});
+    } else {
+      this.setState({
+        enemyShipLocations:
+          Object.assign({},
+            this.state.enemyShipLocations[i] = true,
+            this.state.enemyShipLocations),
+        userStrikeType: `was a HIT at location ${i}!`
+      });
+    }
+  }
   state = {
     addUsername: this.addUsername,
     toggleStartGame: this.toggleStartGame,
+    strikeEnemy: this.strikeEnemy,
     username: '',
     startGame: false,
-    opponentStartGame: false,
+    opponentName: 'Computer', // default Computer for PC play, default '' for socket-integration play with person
+    opponentStartGame: true, // default true for PC play, default false for real opponent play is integrated
+    enemyShipLocations: {},
+    userStrikeType: null,
+  }
+  componentDidMount() {
+    let enemyTiles = {};
+    for (let i = 0; i < 4; i++) {
+      let tileNumber = Math.floor(Math.random() * 25) + 1;
+      enemyTiles[tileNumber] = false;
+    }
+    this.setState({enemyShipLocations: enemyTiles});
   }
   render() {
     return (
