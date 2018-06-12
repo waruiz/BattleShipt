@@ -33,7 +33,8 @@ class Provider extends Component {
     strikeEnemy: this.strikeEnemy,
     username: '',
     startGame: false,
-    opponentStartGame: false,
+    opponentName: 'Computer', // default Computer for PC play, default '' for socket-integration play with person
+    opponentStartGame: true, // default true for PC play, default false for real opponent play is integrated
     enemyShipLocations: {},
   }
   componentDidMount() {
