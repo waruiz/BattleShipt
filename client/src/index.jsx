@@ -12,12 +12,37 @@ class Provider extends Component {
   toggleStartGame = () => {
     this.setState({startGame: true});
   }
+  strikeEnemy = (i) => {
+    if (this.state.enemyShipLocations[i] === undefined) {
+      console.log('Miss!');
+    } else if (this.state.enemyShipLocations[i]) {
+      console.log('Already taken!')
+    } else {
+      console.log('Hit!');
+      this.setState({
+        enemyShipLocations:
+          Object.assign({},
+            this.state.enemyShipLocations[i] = true,
+            this.state.enemyShipLocations)
+      });
+    }
+  }
   state = {
     addUsername: this.addUsername,
     toggleStartGame: this.toggleStartGame,
+    strikeEnemy: this.strikeEnemy,
     username: '',
     startGame: false,
     opponentStartGame: false,
+    enemyShipLocations: {},
+  }
+  componentDidMount() {
+    let enemyTiles = {};
+    for (let i = 0; i < 4; i++) {
+      let tileNumber = Math.floor(Math.random() * 25) + 1;
+      enemyTiles[tileNumber] = false;
+    }
+    this.setState({enemyShipLocations: enemyTiles});
   }
   render() {
     return (
