@@ -23,4 +23,4 @@ As easy as 1, 2, ..., 6 :smile:
 - [x] Present the Battlefield with a Grid and GameStatus card which can start the game with your opponent
 - [x] Place your own ships on grid, and be able to place points of attack on grid tiles once game has started
 - [x] Challenge the computer's randomly chosen tile locations, and be notified of your strike's success
-- [ ] Get socket.io working to tally whose points of attack hit an actual opponent ship :sweat_smile: Stay tuned!
+- [ ] Proposed MVP+: Get socket.io working to tally whose points of attack hit an actual opponent ship :sweat_smile: Stay tuned!
