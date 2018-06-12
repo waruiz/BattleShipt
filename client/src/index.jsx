@@ -18,13 +18,26 @@ class Provider extends Component {
     } else if (this.state.enemyShipLocations[i]) {
       this.setState({userStrikeType: `was ALREADY TAKEN at location ${i}!`});
     } else {
-      this.setState({
-        enemyShipLocations:
-          Object.assign({},
-            this.state.enemyShipLocations[i] = true,
-            this.state.enemyShipLocations),
-        userStrikeType: `was a HIT at location ${i}!`
-      });
+      let newTotalSunk = this.state.totalEnemySunken + 1;
+      if (newTotalSunk === 4) {
+        this.setState({
+          enemyShipLocations:
+            Object.assign({},
+              this.state.enemyShipLocations[i] = true,
+              this.state.enemyShipLocations),
+          userStrikeType: `was a HIT, and YOU'VE WON the battle!`,
+          totalEnemySunken: newTotalSunk
+        });
+      } else {
+        this.setState({
+          enemyShipLocations:
+            Object.assign({},
+              this.state.enemyShipLocations[i] = true,
+              this.state.enemyShipLocations),
+          userStrikeType: `was a HIT at location ${i}!`,
+          totalEnemySunken: newTotalSunk
+        });
+      }
     }
   }
   state = {
@@ -37,6 +50,7 @@ class Provider extends Component {
     opponentStartGame: true, // default true for PC play, default false for real opponent play is integrated
     enemyShipLocations: {},
     userStrikeType: null,
+    totalEnemySunken: 0,
   }
   componentDidMount() {
     let enemyTiles = {};
