@@ -12,12 +12,14 @@ export default class Tile extends Component {
     shipPlaced: false,
   }
 
-  selectTile = (gameStatus) => {
+  selectTile = (gameStatus, i, callback) => {
+    console.log(`YOU HIT TILE: ${i}`)
     let opposite = !(this.state.selected);
     if (!gameStatus) {
       let myShip = !(this.state.shipPlaced);
       this.setState({selected: opposite, shipPlaced: myShip});
     } else {
+      callback(i);
       this.setState({selected: opposite});
     }
   }
@@ -25,10 +27,10 @@ export default class Tile extends Component {
   render () {
     return (
       <Context.Consumer>
-        {({startGame}) => (
+        {({startGame, strikeEnemy}) => (
           <React.Fragment>
             <div className='tileStyle' style={this.props.position}
-              onClick={() => this.selectTile(startGame)} id={`coordinate-${this.props.i}`} >
+              onClick={() => this.selectTile(startGame, this.props.i, strikeEnemy)} id={`coordinate-${this.props.i}`} >
             {
             startGame === false ?
               (this.state.selected ?
